@@ -6,7 +6,7 @@ before_install:
   - docker -t jeffyarias/react-test -f ./client/Dockerfile.dev ./client/Dockerfile.dev
 
 script: 
-   - docker run -e CI=true jeffyarias/react-test npm test
+   - docker run jeffyarias/react-test npm test -- --coverage
 
 after_success: 
   - docker build -t jeffyarias/multi-client ./client/Dockerfile.dev
@@ -21,4 +21,3 @@ after_success:
   - docker push jeffyarias/multi-nginx
   - docker push jeffyarias/multi-server
   - docker push jeffyarias/multi-worker
-  
