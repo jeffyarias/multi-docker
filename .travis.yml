@@ -11,7 +11,7 @@ script:
    
 
 after_success: 
-  - docker build -t jeffyarias/multi-client ./client/Dockerfile.dev
+  - docker build -t jeffyarias/multi-client ./client
   - docker build jeffyarias/multi-nginx ./nginx
   - docker build jeffyarias/multi-server ./server
   - docker build jeffyarias/multi-worker ./worker
